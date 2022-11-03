@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { change, increase } from "../modules/counter";
+import { change, decreaseAsync, increase, increaseAsync } from "../modules/counter";
 
 const CounterBox = () => {
     // useSlelector를 통해서 state의 원하는 값을 가져올 수 있다
@@ -34,6 +34,13 @@ const CounterBox = () => {
              * dispatch도 함순데 ()인에 넣으면 바로 실행하기 때문에 
              * 그리고 객체라서 {type : "decrease"} 이렇게 {} 감싸줘야함 
              */}
+            
+            {/** thunk를 이용하여 비동기로 작성 */}
+            <button onClick={()=>{dispatch(increaseAsync())}}>1초 뒤 증가</button>
+            
+            {/** thunk를 이용하여 2초 뒤 1감소하는 내용작성 */}
+            <button onClick={()=>{dispatch(decreaseAsync())}}>2초 뒤 감소</button>
+
 
             {/* changeNum값을 바꿀 input */}
             <p>{changeNum}</p>

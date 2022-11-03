@@ -4,9 +4,10 @@ import { combineReducers } from "redux";
 // 작성한 리덕스 모듈을 가져옴
 import counter from "./counter";
 import memo from "./memo";
+import news from "./news";
 
 // 묶어서 보내주면 됨
 // 작성한 리덕스를 객체로 묶어서 내보냄
-const rootReducer = combineReducers({counter, memo});
+const rootReducer = combineReducers({counter, memo, news});
 
 export default rootReducer;
