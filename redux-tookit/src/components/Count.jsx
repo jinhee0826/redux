@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { increment, incrementByAmount } from "../modules/counter";
+import { increment, incrementAsync, incrementByAmount, incrementByAsync } from "../modules/counter";
 
 const Count = () => {
     const count = useSelector((state)=>state.counter.value);
@@ -12,6 +12,8 @@ const Count = () => {
                 // incrementByAmount()의 인수값으로 들어가는 payload로 전달됨
                 onClick={ () => {
                 dispatch(incrementByAmount(10)) } }>+10</button>
+
+                <button onClick={()=>{dispatch(incrementAsync())}}>1초 뒤 증가</button>
         </div>
     );
 }
